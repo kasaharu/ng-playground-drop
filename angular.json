@@ -5,5 +5,27 @@
     "packageManager": "yarn"
   },
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {},
+  "schematics": {
+    "@schematics/angular:class": {
+      "lintFix": true
+    },
+    "@schematics/angular:component": {
+      "style": "scss",
+      "changeDetection": "OnPush",
+      "lintFix": true
+    },
+    "@schematics/angular:directive": {
+      "lintFix": true
+    },
+    "@schematics/angular:module": {
+      "lintFix": true
+    },
+    "@schematics/angular:pipe": {
+      "lintFix": true
+    },
+    "@schematics/angular:service": {
+      "lintFix": true
+    }
+  }
 }
