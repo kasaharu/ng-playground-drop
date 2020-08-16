@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { TopComponent } from './features/app-shell/ui/top/top.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', redirectTo: '/top', pathMatch: 'full' },
+  { path: 'top', component: TopComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
