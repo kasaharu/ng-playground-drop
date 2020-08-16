@@ -6,5 +6,12 @@
 */
 {
   "files": [],
-  "references": []
+  "references": [
+    {
+      "path": "./projects/ngrx-component-store/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/ngrx-component-store/tsconfig.spec.json"
+    }
+]
 }

@@ -2,10 +2,132 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "yarn"
+    "packageManager": "yarn",
+    "analytics": "64a986df-56d3-48a2-9ec7-8d35bf29c6d2"
   },
   "newProjectRoot": "projects",
-  "projects": {},
+  "projects": {
+    "ngrx-component-store": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/ngrx-component-store",
+      "sourceRoot": "projects/ngrx-component-store/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ngrx-component-store",
+            "index": "projects/ngrx-component-store/src/index.html",
+            "main": "projects/ngrx-component-store/src/main.ts",
+            "polyfills": "projects/ngrx-component-store/src/polyfills.ts",
+            "tsConfig": "projects/ngrx-component-store/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ngrx-component-store/src/favicon.ico",
+              "projects/ngrx-component-store/src/assets"
+            ],
+            "styles": [
+              "projects/ngrx-component-store/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ngrx-component-store/src/environments/environment.ts",
+                  "with": "projects/ngrx-component-store/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ngrx-component-store:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ngrx-component-store:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ngrx-component-store:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngrx-component-store/src/test.ts",
+            "polyfills": "projects/ngrx-component-store/src/polyfills.ts",
+            "tsConfig": "projects/ngrx-component-store/tsconfig.spec.json",
+            "karmaConfig": "projects/ngrx-component-store/karma.conf.js",
+            "assets": [
+              "projects/ngrx-component-store/src/favicon.ico",
+              "projects/ngrx-component-store/src/assets"
+            ],
+            "styles": [
+              "projects/ngrx-component-store/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngrx-component-store/tsconfig.app.json",
+              "projects/ngrx-component-store/tsconfig.spec.json",
+              "projects/ngrx-component-store/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ngrx-component-store/e2e/protractor.conf.js",
+            "devServerTarget": "ngrx-component-store:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ngrx-component-store:serve:production"
+            }
+          }
+        }
+      }
+    }},
   "schematics": {
     "@schematics/angular:class": {
       "lintFix": true
@@ -27,5 +149,6 @@
     "@schematics/angular:service": {
       "lintFix": true
     }
-  }
+  },
+  "defaultProject": "ngrx-component-store"
 }
