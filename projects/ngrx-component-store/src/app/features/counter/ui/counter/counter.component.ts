@@ -14,4 +14,8 @@ export class CounterComponent implements OnInit {
   readonly count$ = this.counterStore.count$;
 
   ngOnInit(): void {}
+
+  onClickAddButton() {
+    this.counterStore.add();
+  }
 }
