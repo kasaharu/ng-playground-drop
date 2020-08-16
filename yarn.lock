@@ -1053,6 +1053,13 @@
     merge-source-map "^1.1.0"
     schema-utils "^2.6.4"
 
+"@ngrx/component-store@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/component-store/-/component-store-10.0.0.tgz#c8604d5ce57a53e6f43ff41a70dece3b21a43574"
+  integrity sha512-m4AvA9I0aAazPERkbyPJzhQzrnbLfzkpgAIDjNDX0jYfPx10F0AYbXsKiqCEcIWSbikhqac5NXTduKyidZzn3g==
+  dependencies:
+    tslib "^2.0.0"
+
 "@ngtools/webpack@10.0.6":
   version "10.0.6"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-10.0.6.tgz#6fe392ecad9f2869fc68eda7f1344ad0b68a8898"
