@@ -7,16 +7,9 @@ import { TopComponent } from './features/app-shell/ui/top/top.component';
 import { CounterComponent } from './features/counter/ui/counter/counter.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TopComponent,
-    CounterComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  declarations: [AppComponent, TopComponent, CounterComponent],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
