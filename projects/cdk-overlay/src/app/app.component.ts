@@ -1,7 +1,7 @@
 import { Overlay } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
-import { Component } from '@angular/core';
-import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { Component, Injector } from '@angular/core';
+import { ConfirmDialogComponent, OVERLAY_REF } from './confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
 export class AppComponent {
   title = 'cdk-overlay';
 
-  constructor(private readonly overlay: Overlay) {}
+  constructor(private readonly injector: Injector, private readonly overlay: Overlay) {}
 
   showConfirm() {
     const overlayRef = this.overlay.create({
@@ -19,7 +19,13 @@ export class AppComponent {
       hasBackdrop: true,
     });
 
-    const portal = new ComponentPortal(ConfirmDialogComponent);
+    // MEMO: Injector.create()
+    //     : this.injector?
+    const portal = new ComponentPortal(
+      ConfirmDialogComponent,
+      null,
+      Injector.create([{ provide: OVERLAY_REF, useValue: overlayRef }], this.injector),
+    );
 
     overlayRef.attach(portal);
   }
