@@ -12,6 +12,12 @@
     },
     {
       "path": "./projects/ngrx-component-store/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/cdk-overlay/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/cdk-overlay/tsconfig.spec.json"
     }
 ]
 }

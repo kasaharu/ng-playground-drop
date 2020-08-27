@@ -127,6 +127,127 @@
           }
         }
       }
+    },
+    "cdk-overlay": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/cdk-overlay",
+      "sourceRoot": "projects/cdk-overlay/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/cdk-overlay",
+            "index": "projects/cdk-overlay/src/index.html",
+            "main": "projects/cdk-overlay/src/main.ts",
+            "polyfills": "projects/cdk-overlay/src/polyfills.ts",
+            "tsConfig": "projects/cdk-overlay/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/cdk-overlay/src/favicon.ico",
+              "projects/cdk-overlay/src/assets"
+            ],
+            "styles": [
+              "projects/cdk-overlay/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/cdk-overlay/src/environments/environment.ts",
+                  "with": "projects/cdk-overlay/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "cdk-overlay:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "cdk-overlay:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "cdk-overlay:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cdk-overlay/src/test.ts",
+            "polyfills": "projects/cdk-overlay/src/polyfills.ts",
+            "tsConfig": "projects/cdk-overlay/tsconfig.spec.json",
+            "karmaConfig": "projects/cdk-overlay/karma.conf.js",
+            "assets": [
+              "projects/cdk-overlay/src/favicon.ico",
+              "projects/cdk-overlay/src/assets"
+            ],
+            "styles": [
+              "projects/cdk-overlay/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/cdk-overlay/tsconfig.app.json",
+              "projects/cdk-overlay/tsconfig.spec.json",
+              "projects/cdk-overlay/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/cdk-overlay/e2e/protractor.conf.js",
+            "devServerTarget": "cdk-overlay:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "cdk-overlay:serve:production"
+            }
+          }
+        }
+      }
     }},
   "schematics": {
     "@schematics/angular:class": {
