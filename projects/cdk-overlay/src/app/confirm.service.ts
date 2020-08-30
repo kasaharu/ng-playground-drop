@@ -18,7 +18,12 @@ export class ConfirmService {
     });
 
     // MEMO: Injector.create()
-    //     : this.injector?
+
+    // MEMO: ComponentPortal constructor
+    //       ComponentType
+    //       ViewContainerRef
+    //       Injector
+    //       ComponentFactoryResolver: なくても動いている？
     const portal = new ComponentPortal(
       ConfirmDialogComponent,
       null,
@@ -27,7 +32,7 @@ export class ConfirmService {
           { provide: OVERLAY_REF, useValue: overlayRef },
           { provide: OVERLAY_DATA, useValue: { message } as ConfirmData },
         ],
-        this.injector,
+        // this.injector,
       ),
     );
 
