@@ -14,6 +14,7 @@ export class ConfirmService {
     const overlayRef = this.overlay.create({
       positionStrategy: this.overlay.position().global().centerHorizontally().centerVertically(),
       hasBackdrop: true,
+      scrollStrategy: this.overlay.scrollStrategies.block(),
     });
 
     // MEMO: Injector.create()
